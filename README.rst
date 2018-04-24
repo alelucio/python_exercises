@@ -1,5 +1,5 @@
 ===========
-py-exercise
+py_exercises
 ===========
 
 

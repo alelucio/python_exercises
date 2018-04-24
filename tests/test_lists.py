@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import pytest
-from py_exercise.lists import *
+from py_exercises.lists import *
 
 
 @pytest.mark.parametrize("last_func,error_type", [

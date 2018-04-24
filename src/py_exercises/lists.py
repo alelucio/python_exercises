@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from py_exercise.recursion import *
+from py_exercises.recursion import *
 
 
 def my_last(arr):

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import pytest
-from py_exercise.recursion import *
+from py_exercises.recursion import *
 
 
 def test_fib():
