@@ -73,7 +73,7 @@ def test_sum_number():
 def test_three_of_kind_ones():
     assert three_of_kind_ones([1, 1, 1, 4, 5]) == 12
     assert three_of_kind_ones([1, 1, 1, 1, 6]) != 12
-    # assert three_of_kind_ones([2, 2, 4, 5, 5]) != 12#
+    #assert three_of_kind_ones([2, 2, 4, 5, 5]) != 12#
 
 
 def test_three_of_kind_ones_1():
@@ -87,6 +87,31 @@ def test_four_of_kind_ones():
 
 
 def test_large_straight():
-    assert large_straight([1, 2, 3, 4, 5]) == 40
+    assert large_straight([2, 3, 1, 4, 5]) == 40
     assert large_straight([5, 2, 2, 4, 5]) != 40
+    assert large_straight([4, 6, 5, 2, 3]) == 40
 
+
+def test_aletzee():
+    assert aletzee([2, 2, 2, 2, 2]) == 50
+    assert aletzee([1, 2, 2, 2, 2]) != 50
+    assert aletzee([]) != 50
+
+
+def test_full_house():
+    assert full_house([2, 2, 2, 3, 3]) == 25
+    assert full_house([2, 3, 3, 2, 2]) == 25
+    assert full_house([3, 5, 6, 3, 3]) != 25
+    # assert full_house([]) != 25#
+    assert full_house([3, 3, 3, 3, 3]) != 25
+
+
+def test_destroy_duplycates_3():
+    assert destroy_duplycates_3([2, 3, 4, 3, 1]) == [1, 2, 3, 4]
+
+
+def test_small_straight():
+    assert small_straight(destroy_duplycates_3([1, 2, 3, 4, 5])) == 30
+    assert small_straight(destroy_duplycates_3([2, 2, 2, 2, 2])) != 30
+    assert small_straight(destroy_duplycates_3([2, 6, 6, 3, 1])) != 30
+    assert small_straight([6, 5, 4, 3, 3]) == 30

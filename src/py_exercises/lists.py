@@ -98,5 +98,36 @@ def four_of_kind_ones(arr):
 
 
 def large_straight(arr):
-    scala = arr.sort()
-    return 40 if scala == [1, 2, 3, 4, 5]  else None
+    arr.sort()
+    if sum(arr) == 15 or sum(arr) == 20:
+        return 40
+    else:
+        return None
+
+
+def aletzee(arr):
+    if len(set(arr)) == 1:
+        return 50
+    else:
+        return None
+
+
+def full_house(arr):
+    arr.sort()
+    if len(set(arr)) == 2 and sum(arr[0:2]) == arr[0] * 2 and sum(arr[2:5]) == arr[2] * 3 or len(set(arr)) == 2 and sum(
+            arr[0:3]) == arr[0] * 3 and sum(arr[3:5]) == arr[3] * 2:
+        return 25
+    else:
+        return None
+
+
+def destroy_duplycates_3(arr):
+    result = list(set(arr))
+    return result[0:4]
+
+
+def small_straight(arr):
+    if sum(destroy_duplycates_3(arr)) == 10 or sum(destroy_duplycates_3(arr)) == 14 or sum(destroy_duplycates_3(arr)) == 18:
+        return 30
+    else:
+        return None
