@@ -50,68 +50,9 @@ def test_destroy_duplicates_2():
     assert destroy_duplicates_2("babbbo") != "babbo"
 
 
-# aletzee test #
-
-def test_select_number():
-    assert select_number([1, 4, 5, 1, 3]) == [1, 1]
-    assert select_number([]) == []
-    assert select_number([1, 4, 5, 2, 3]) != [1, 1]
+def test_pack():
+    assert pack(['a', 'a', 'a', 'b', 'b', 'd', 'e', 'd', 'e']) == ['aaa', 'bb', 'dd', 'ee']
 
 
-def test_select_number_1():
-    assert select_number_1([1, 4, 5, 1, 3]) == [1, 1]
-    assert select_number([]) == []
-    assert select_number([1, 4, 5, 2, 3]) != [1, 1]
-
-
-def test_sum_number():
-    assert sum_number([1, 4, 5, 1, 3]) == 2
-    # assert sum_number([]) == []#
-    assert sum_number([1, 4, 5, 2, 3]) != 2
-
-
-def test_three_of_kind_ones():
-    assert three_of_kind_ones([1, 1, 1, 4, 5]) == 12
-    assert three_of_kind_ones([1, 1, 1, 1, 6]) != 12
-    #assert three_of_kind_ones([2, 2, 4, 5, 5]) != 12#
-
-
-def test_three_of_kind_ones_1():
-    assert three_of_kind_ones_1([1, 1, 1, 4, 5]) == 12
-    assert three_of_kind_ones([1, 1, 4, 3, 6]) != 12
-
-
-def test_four_of_kind_ones():
-    assert four_of_kind_ones([1, 1, 1, 1, 6]) == 10
-    assert four_of_kind_ones([1, 1, 5, 1, 6]) != 10
-
-
-def test_large_straight():
-    assert large_straight([2, 3, 1, 4, 5]) == 40
-    assert large_straight([5, 2, 2, 4, 5]) != 40
-    assert large_straight([4, 6, 5, 2, 3]) == 40
-
-
-def test_aletzee():
-    assert aletzee([2, 2, 2, 2, 2]) == 50
-    assert aletzee([1, 2, 2, 2, 2]) != 50
-    assert aletzee([]) != 50
-
-
-def test_full_house():
-    assert full_house([2, 2, 2, 3, 3]) == 25
-    assert full_house([2, 3, 3, 2, 2]) == 25
-    assert full_house([3, 5, 6, 3, 3]) != 25
-    # assert full_house([]) != 25#
-    assert full_house([3, 3, 3, 3, 3]) != 25
-
-
-def test_destroy_duplycates_3():
-    assert destroy_duplycates_3([2, 3, 4, 3, 1]) == [1, 2, 3, 4]
-
-
-def test_small_straight():
-    assert small_straight(destroy_duplycates_3([1, 2, 3, 4, 5])) == 30
-    assert small_straight(destroy_duplycates_3([2, 2, 2, 2, 2])) != 30
-    assert small_straight(destroy_duplycates_3([2, 6, 6, 3, 1])) != 30
-    assert small_straight([6, 5, 4, 3, 3]) == 30
+def test_encode():
+    assert encode(['a', 'a', 'a', 'b', 'b', 'd', 'e', 'd', 'e']) == [(3, 'a'), (2, 'b'), (2, 'd'), (2, 'e')]

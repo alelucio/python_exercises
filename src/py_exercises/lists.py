@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from functools import reduce
-
+from itertools import groupby
 from py_exercises.recursion import *
 
 
@@ -19,8 +19,6 @@ def my_but_last(arr):
 
     return arr[-2]
 
-
-# inverti una lista #
 
 def reverse_a_list(arr):
     return arr[::-1]
@@ -66,68 +64,21 @@ def destroy_duplicates_2(arr):
     return reduce(lambda acc, nextt: acc if nextt == acc[-1] else acc + nextt, arr)
 
 
-# funzioni aletzee #
+# impacca di duplicati di una lista di elementi in una sottolista
 
-def select_number(arr):
-    return list(filter(lambda x: x == 1, arr))
-
-
-def select_number_1(arr):
-    lista_numeri = list(filter(lambda x: x == 1, arr))
-    return lista_numeri
-    print(lista_numeri)
-
-
-def sum_number(arr):
-    return reduce(lambda x, y: x + y, select_number(arr))  # fatto ma non capito benissimo#
-
-
-def three_of_kind_ones(arr):
-    if sum_number(arr) == 3:
-        return sum(arr)
-    else:
-        return None
-
-
-def three_of_kind_ones_1(arr):
-    return sum(arr) if sum_number(arr) == 3 else None
-
-
-def four_of_kind_ones(arr):
-    return sum(arr) if sum_number(arr) == 4 else None
-
-
-def large_straight(arr):
+def pack(arr):
     arr.sort()
-    if sum(arr) == 15 or sum(arr) == 20:
-        return 40
-    else:
-        return None
+
+    def pippo(acc, nextt):
+        if nextt == acc[-1]:
+            return acc + nextt
+
+        else:
+            return acc + " " + nextt
+
+    return reduce(pippo, arr).split(" ")
 
 
-def aletzee(arr):
-    if len(set(arr)) == 1:
-        return 50
-    else:
-        return None
-
-
-def full_house(arr):
+def encode(arr):
     arr.sort()
-    if len(set(arr)) == 2 and sum(arr[0:2]) == arr[0] * 2 and sum(arr[2:5]) == arr[2] * 3 or len(set(arr)) == 2 and sum(
-            arr[0:3]) == arr[0] * 3 and sum(arr[3:5]) == arr[3] * 2:
-        return 25
-    else:
-        return None
-
-
-def destroy_duplycates_3(arr):
-    result = list(set(arr))
-    return result[0:4]
-
-
-def small_straight(arr):
-    if sum(destroy_duplycates_3(arr)) == 10 or sum(destroy_duplycates_3(arr)) == 14 or sum(destroy_duplycates_3(arr)) == 18:
-        return 30
-    else:
-        return None
+    return [(len(list(group)), key) for key, group in groupby(arr)]
