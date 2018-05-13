@@ -82,3 +82,27 @@ def pack(arr):
 def encode(arr):
     arr.sort()
     return [(len(list(group)), key) for key, group in groupby(arr)]
+
+
+# question 11 #
+
+def question_11(arr):
+    def pluto(n):
+        if len(n) > 1:
+            return len(n), n[0]
+        else:
+            return n[0]
+
+    return [pluto(list(group)) for key, group in groupby(arr)]
+
+
+def question_14mio(arr):
+    a = list(map(lambda x: x + x, arr))
+    return [list(n) for n in a]
+# sono arrivato a questo, simile ma non va bene #
+
+
+
+def question_14(arr):
+    return [x for x in arr for i in (1, 2)]
+#

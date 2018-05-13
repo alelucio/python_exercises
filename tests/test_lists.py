@@ -56,3 +56,17 @@ def test_pack():
 
 def test_encode():
     assert encode(['a', 'a', 'a', 'b', 'b', 'd', 'e', 'd', 'e']) == [(3, 'a'), (2, 'b'), (2, 'd'), (2, 'e')]
+
+
+def test_question_11():
+    assert question_11(['a', 'a', 'a', 'a', 'b', 'c', 'c', 'a', 'a', 'd', 'e', 'e', 'e', 'e']) == [(4, 'a'), 'b',
+                                                                                                   (2, 'c'), (2, 'a'),
+                                                                                                   'd', (4, 'e')]
+
+
+def test_question_14mio():
+    assert question_14mio(['a', 'b', 'c', 'c', 'd']) == ['a', 'a', 'b', 'b', 'c', 'c', 'c', 'c', 'd', 'd']
+
+
+def test_question_14():
+    assert question_14(['a', 'b', 'c', 'c', 'd']) == ['a', 'a', 'b', 'b', 'c', 'c', 'c', 'c', 'd', 'd']
